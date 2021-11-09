@@ -1,0 +1,53 @@
+.vegetables-body {
+  margin-left: 6rem;
+  margin-right: 6rem;
+  margin-top: 6rem;
+
+  h1 {
+    color: #D3472B;
+    font-family: poppins-bold;
+    text-transform: uppercase;
+    font-size: 4rem;
+  }
+
+  .veg-items {
+    min-width: 300px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+
+    .img-box {
+      width: 100px;
+      height: 70px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .items-det {
+      background: url(../../../assets/1x/item-bg.png);
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .price {
+        width: 100%;
+        label{
+          color:#4D4D4D;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

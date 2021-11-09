@@ -1,0 +1,21 @@
+<div class="vegetables-body">
+  <h1>Vegetables</h1>
+  <div class="veg-items-list d-flex justify-content-start flex-wrap">
+    <div class="veg-items" *ngFor="let items of items">
+      <div class="img-box">
+        <img src="{{items.img}}" alt="">
+      </div>
+      <div class="items-det">
+        <h4 class="mt-3">{{items.name}}</h4>
+        <div class="price d-flex justify-content-between">
+          <label for="">${{items.price}}</label>
+          <label for="">Per Kg</label>
+        </div>
+      </div>
+      <!-- <div *ngFor="let items of items">
+        <p>{{items.name}}</p>
+        <label>{{items.price}}</label>
+      </div> -->
+    </div>
+  </div>
+</div>
