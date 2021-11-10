@@ -11,11 +11,12 @@
           <label for="">${{items.price}}</label>
           <label for="">Per Kg</label>
         </div>
+        <div class="counter d-flex justify-content-around">
+          <div class="min-btn" (click)="min($event)"> - </div>
+          <input type="text" value="0" min="0" readonly>
+          <div class="plus-btn" (click)="plus($event)"> + </div>
+        </div>
       </div>
-      <!-- <div *ngFor="let items of items">
-        <p>{{items.name}}</p>
-        <label>{{items.price}}</label>
-      </div> -->
     </div>
   </div>
 </div>

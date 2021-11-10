@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vegetables.component.scss']
 })
 export class VegetablesComponent implements OnInit {
+
   items = [
     {
       name: "Tomato",
@@ -43,9 +44,26 @@ export class VegetablesComponent implements OnInit {
 
     },
   ]
-  constructor() { }
 
+  constructor() { }
+   counter = 0;
+  min($event){
+    var inp = $event.target.parentNode.children[1];
+    if(inp.value == 0){
+      return;
+    }
+    else{
+      var inc = this.counter--
+      inp.value = inc; 
+
+    }
+  }
+  plus($event){
+    var inp = $event.target.parentNode.children[1];
+    var inc = this.counter++
+    inp.value = inc; 
+  }
   ngOnInit(): void {
   }
-
+  
 }
