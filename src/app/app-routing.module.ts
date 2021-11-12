@@ -4,6 +4,7 @@ import { BodyComponent } from './components/body/body.component';
 import { VegetablesComponent } from './components/vegetables/vegetables.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'home', pathMatch: 'full' },
   {path:'home', component:BodyComponent},
   {path:'vegetables', component:VegetablesComponent},
 ];
