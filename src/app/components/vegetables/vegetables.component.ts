@@ -1,92 +1,79 @@
 import { Component, OnInit } from '@angular/core';
-import * as angular from "angular";
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-vegetables',
   templateUrl: './vegetables.component.html',
-  styleUrls: ['./vegetables.component.scss']
+  styleUrls: ['./vegetables.component.scss'],
 })
 export class VegetablesComponent implements OnInit {
-
-  items:any[] = [
+  items: any[] = [
     {
-      name: "Tomato",
+      name: 'Tomato',
       price: 10,
-      img: "../../../assets/1x/tomato.png",
+      img: '../../../assets/1x/tomato.png',
       qty: 0,
     },
     {
-      name: "Spinach",
+      name: 'Spinach',
       price: 15,
-      img: "../../../assets/1x/spinach.png",
+      img: '../../../assets/1x/spinach.png',
       qty: 0,
-
     },
     {
-      name: "Red Chilli",
+      name: 'Red Chilli',
       price: 3,
-      img: "../../../assets/1x/chilli.png",
+      img: '../../../assets/1x/chilli.png',
       qty: 0,
-
     },
     {
-      name: "Pea",
+      name: 'Pea',
       price: 7,
-      img: "../../../assets/1x/pea.png",
+      img: '../../../assets/1x/pea.png',
       qty: 0,
-
     },
     {
-      name: "Cucumber",
+      name: 'Cucumber',
       price: 13,
-      img: "../../../assets/1x/cucumber.png",
+      img: '../../../assets/1x/cucumber.png',
       qty: 0,
-
     },
     {
-      name: "Green Chilli",
+      name: 'Green Chilli',
       price: 4,
-      img: "../../../assets/1x/green-chilli.png",
+      img: '../../../assets/1x/green-chilli.png',
       qty: 0,
     },
+  ];
+  Amount: any = [];
+  Total:any =[
+    0
   ]
-  // interface Product{
-
-  // }
-Amount:any =[
-  {amount:0}
-]
-
   counter = 0;
 
   min(i) {
-    if(this.items[i].qty <= 0){
-      return
-    }
-    else{
-      this.items[i].qty -= 1
+    if (this.items[i].qty <= 0) {
+      return;
+    } else {
+      this.items[i].qty -= 1;
+      this.Amount.splice(-1, 1);
+      console.log(this.Amount);
     }
   }
 
   plus(i) {
     this.items[i].qty += 1;
-}
-
-  cart(i){
-    // for (let j = 0; j < this.items.length; j++) {
-    //   this.Amount[0].amount =  this.items[i].qty * this.items[i].price;
-    //   console.log(this.Amount)
-    // }
-    //  for (let j = 0; j < this.items.length; j++) {
-    //   this.items[i].amount =  this.items[i].qty * this.items[i].price;
-    //   console.log(this.items[i].amount)
-    // }
-
+    this.Amount.push(this.items[i].price);
+    console.log(this.Amount);
   }
-constructor() { }
+  cart() {
+    var total = 0;
+    for (let i in this.Amount) {
+      total += this.Amount[i];
+    }
+   this.Total[0]=total
+    console.log(this.Total);
+  }
+  constructor() {}
 
-ngOnInit(): void {
-}
-
+  ngOnInit(): void {}
 }
