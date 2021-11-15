@@ -55,7 +55,7 @@ export class VegetablesComponent implements OnInit {
 
   // }
 Amount:any =[
-  {amount:0}
+
 ]
 
   counter = 0;
@@ -66,6 +66,9 @@ Amount:any =[
     }
     else{
       this.items[i].qty -= 1
+      this.items.forEach(element => {
+
+      });
     }
   }
 
