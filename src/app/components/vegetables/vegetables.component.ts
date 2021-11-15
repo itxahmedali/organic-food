@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-vegetables',
@@ -45,6 +46,7 @@ export class VegetablesComponent implements OnInit {
     },
   ];
   Amount: any = [];
+  cart_items:any = []
   Total: any = []
   counter = 0;
 
@@ -53,23 +55,25 @@ export class VegetablesComponent implements OnInit {
       return;
     } else {
       this.items[i].qty -= 1;
-      this.Amount.splice(-1, 1);
-      console.log(this.Amount);
+      var price = this.items[i].price
+      var index = this.Amount.indexOf(price);
+      if (index > -1) {
+        this.Amount.splice(index, 1);
+      }
     }
   }
 
   plus(i) {
     this.items[i].qty += 1;
     this.Amount.push(this.items[i].price);
-    console.log(this.Amount);
   }
-  cart() {
+  cart(i) {
     var total = 0;
     for (let i in this.Amount) {
       total += this.Amount[i];
     }
+    this.cart_items.push(this.items[i].name);
     this.Total[0] = total
-    console.log(this.Total);
   }
   constructor() { }
 

@@ -18,14 +18,16 @@
             <div class="min-btn" (click)="min(i)"> - </div>
           </div>
           <div class="add-cart mt-3">
-            <button (click)="cart()">Add To Cart</button>
+            <button (click)="cart(i)">Add To Cart</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-12" *ngFor="let Total of Total">
+      <!-- <app-cart [Total]={Total}></app-cart> -->
       <p>Total:{{Total | currency:'USD'}}</p>
     </div>
   </div>

@@ -7,13 +7,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BodyComponent } from './components/body/body.component';
 import { VegetablesComponent } from './components/vegetables/vegetables.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     BodyComponent,
-    VegetablesComponent
+    VegetablesComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
