@@ -1,5 +1,10 @@
 <div class="vegetables-body">
-  <h1>Vegetables</h1>
+  <div class="d-flex justify-content-between">
+    <h1>Vegetables</h1>
+    <div class="cart" *ngFor="let Total of Total">
+      <app-cart [total]="Total"></app-cart>
+    </div>
+  </div>
   <div class="veg-items-list d-flex justify-content-start flex-wrap">
     <div class="veg-items" *ngFor="let items of items; let i = index">
       <div class="img-box">
@@ -22,13 +27,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12" *ngFor="let Total of Total">
-      <!-- <app-cart [Total]={Total}></app-cart> -->
-      <p>Total:{{Total | currency:'USD'}}</p>
     </div>
   </div>
 </div>

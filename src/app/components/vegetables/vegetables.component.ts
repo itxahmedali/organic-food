@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { iif } from 'rxjs';
 
 @Component({
@@ -47,33 +47,51 @@ export class VegetablesComponent implements OnInit {
   ];
   Amount: any = [];
   cart_items:any = []
-  Total: any = []
+  Total = [0]
   counter = 0;
 
   min(i) {
     if (this.items[i].qty <= 0) {
       return;
     } else {
+      // counter
       this.items[i].qty -= 1;
-      var price = this.items[i].price
+      // removing items from Amount array
+      var price = this.items[i].price;
       var index = this.Amount.indexOf(price);
       if (index > -1) {
         this.Amount.splice(index, 1);
+        // cart total
+        var total = 0;
+        for (let i in this.Amount) {
+          total += this.Amount[i];
+        }
+        this.cart_items.push(this.items[i].name);
+        this.Total[0] = total;
       }
     }
   }
 
   plus(i) {
+    // counter
     this.items[i].qty += 1;
+    // adding items in Amount array
     this.Amount.push(this.items[i].price);
-  }
-  cart(i) {
+    // cart total
     var total = 0;
     for (let i in this.Amount) {
       total += this.Amount[i];
     }
     this.cart_items.push(this.items[i].name);
-    this.Total[0] = total
+    this.Total[0] = total;
+  }
+  cart(i) {
+    // var total = 0;
+    // for (let i in this.Amount) {
+    //   total += this.Amount[i];
+    // }
+    // this.cart_items.push(this.items[i].name);
+    // this.Total[0] = total
   }
   constructor() { }
 
