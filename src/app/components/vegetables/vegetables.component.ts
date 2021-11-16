@@ -47,7 +47,7 @@ export class VegetablesComponent implements OnInit {
   ];
   Amount: any = [];
   cart_items:any = []
-  Total = [0]
+  Total:any = [0]
   counter = 0;
 
   min(i) {
@@ -84,12 +84,15 @@ export class VegetablesComponent implements OnInit {
     }
     this.cart_items.push(this.items[i].name);
     this.Total[0] = total;
+    console.log('total', this.Total);
+
   }
   cart(i) {
-    // var total = 0;
     // for (let i in this.Amount) {
-    //   total += this.Amount[i];
+    //   this.Total[i] -= this.Amount[i];
     // }
+    // console.log('total', this.Total);
+    // console.log('amount', this.Amount);
     // this.cart_items.push(this.items[i].name);
     // this.Total[0] = total
   }
